@@ -27,21 +27,6 @@ x.AI.Coder.2 是一个基于 iFlow CLI 的智能代码转换工具，专门用�
 npm install -g iflow-cli
 ```
 
-### 方法 2: 使用 pip 安装
-
-```bash
-pip install iflow-cli
-```
-
-### 方法 3: 从源码安装
-
-```bash
-git clone https://github.com/iFlow-CLI/iflow-cli.git
-cd iflow-cli
-npm install
-npm link
-```
-
 ### 验证安装
 
 ```bash
@@ -65,15 +50,19 @@ cd x.AI.Coder.2
 
 在项目根目录下运行：
 
+首次需要登陆，自行注册账号
+
 ```bash
 iflow
 ```
 
 ### 4. 使用 Agent 功能
 
+直接在对话框中输入
+
 #### 查询转换规则
 
-```
+``` 
 WinForms 的 LayoutVisibility.Never 在 WPF 中应该怎么转换？
 ```
 
