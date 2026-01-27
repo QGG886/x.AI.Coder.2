@@ -13,16 +13,19 @@
 
 **规则内容**：
 
-| WinForms 属性 | WPF 属性 |
-|--------------|----------|
-| `DataSource` | `ItemsSource` |
-| `RefreshDataSource()` | `RefreshData()` |
-| `OptionsView.ShowFooter` | `ShowTotalSummary` |
-| `OptionsView.ColumnAutoWidth` | `AutoWidth` |
-| `OptionsView.ShowBands` | `ShowBandsPanel` |
-| `OptionsSelection.MultiSelect` | `AllowBandMultiRow` |
-| `RowCount` | `VisibleRowCount` |
-| `grdv.Columns` | `grdc.Columns` |
+| WinForms 属性 | WPF 属性 | 说明 |
+|--------------|----------|------|
+| `DataSource` | `ItemsSource` | 直接访问 |
+| `RefreshDataSource()` | `RefreshData()` | 直接访问 |
+| `OptionsView.ShowFooter` | `view.ShowTotalSummary` | 需通过 `var view = grid.View as XIRTableView;` 访问 |
+| `OptionsView.ShowGroupPanel` | `view.ShowGroupPanel` | 需通过 `var view = grid.View as XIRTableView;` 访问 |
+| `OptionsView.ColumnAutoWidth` | `view.AutoWidth` | 需通过 `var view = grid.View as XIRTableView;` 访问 |
+| `OptionsBehavior.Editable` | `view.AllowEditing` | 需通过 `var view = grid.View as XIRTableView;` 访问 |
+| `OptionsDetail.EnableMasterViewMode` | - | **删除**，WPF 中无对应属性 |
+| `OptionsView.ShowBands` | `ShowBandsPanel` | 直接访问 |
+| `OptionsSelection.MultiSelect` | `AllowBandMultiRow` | 直接访问 |
+| `RowCount` | `VisibleRowCount` | 直接访问 |
+| `grdv.Columns` | `grdc.Columns` | 直接访问 |
 
 **示例：**
 ```csharp
@@ -30,7 +33,10 @@
 this.grdcSwapTradList.DataSource = this._tradeCache;
 this.grdcSwapTradList.RefreshDataSource();
 this.grdvSwapTradeList.OptionsView.ShowFooter = true;
+this.grdvSwapTradeList.OptionsView.ShowGroupPanel = false;
 this.grdvSwapTradeList.OptionsView.ColumnAutoWidth = false;
+this.grdvSwapTradeList.OptionsBehavior.Editable = false;
+this.grdvSwapTradeList.OptionsDetail.EnableMasterViewMode = false;
 this.grdvSwapTradeList.OptionsView.ShowBands = false;
 this.grdvTradeList.OptionsSelection.MultiSelect = true;
 int count = this.grdvSwapQuoteList.RowCount;
@@ -38,8 +44,12 @@ int count = this.grdvSwapQuoteList.RowCount;
 // WPF
 this.grdcSwapTradList.ItemsSource = this._tradeCache;
 this.grdcSwapTradList.RefreshData();
-this.grdvSwapTradeList.ShowTotalSummary = true;
-this.grdvSwapTradeList.AutoWidth = false;
+var view = this.grdvSwapTradeList.View as XIRTableView;
+view.ShowTotalSummary = true;
+view.ShowGroupPanel = false;
+view.AutoWidth = false;
+view.AllowEditing = false;
+// this.grdvSwapTradeList.OptionsDetail.EnableMasterViewMode = false;  // WPF 中无对应属性，已删除
 this.grdvSwapTradeList.ShowBandsPanel = false;
 this.grdvTradeList.AllowBandMultiRow = true;
 int count = this.grdcSwapQuoteList.VisibleRowCount;

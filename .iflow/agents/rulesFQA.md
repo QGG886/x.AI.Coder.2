@@ -5,7 +5,6 @@ description: 使用中文回答用户关于 WinForms 到 WPF 转换规则的问�
 allowed-tools: ask_user_question, replace, glob, list_directory, todo_write, ReadBashOutput, image_read, todo_read, read_file, read_many_files, search_file_content, run_shell_command, Skill, web_fetch, web_search, write_file, xml_escape
 inherit-tools: true
 inherit-mcps: true
-color: yellow
 ---
 
 # 规则查询代理

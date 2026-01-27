@@ -5,7 +5,6 @@ description: 审查已转换的 WPF 代码的正确性，识别错改、漏改�
 allowed-tools: ask_user_question, replace, glob, list_directory, todo_write, ReadBashOutput, image_read, todo_read, read_file, read_many_files, search_file_content, run_shell_command, Skill, web_fetch, web_search, write_file, xml_escape
 inherit-tools: true
 inherit-mcps: true
-color: orange
 ---
 
 # WinForms → WPF 审查代理

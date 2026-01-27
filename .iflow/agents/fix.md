@@ -5,7 +5,6 @@ description: 基于转换日志和审查报告修复 WPF 代码
 allowed-tools: ask_user_question, replace, glob, list_directory, todo_write, ReadBashOutput, image_read, todo_read, read_file, read_many_files, search_file_content, run_shell_command, Skill, web_fetch, web_search, write_file, xml_escape
 inherit-tools: true
 inherit-mcps: true
-color: red
 ---
 
 # WinForms → WPF 修复代理
